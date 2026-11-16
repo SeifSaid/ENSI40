@@ -3,7 +3,7 @@ function calculateCountdown() {
     const currentDate = new Date();
     const targetDate = new Date("2024-04-24 00:00:00");
   
-    const totalSeconds = Math.floor((targetDate - currentDate) / 1000);
+    const totalSeconds = Math.max(0, Math.floor((targetDate - currentDate) / 1000));
   
     const days = Math.floor(totalSeconds / (3600 * 24));
     const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
@@ -15,9 +15,6 @@ function calculateCountdown() {
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
 
-    if (totalSeconds<0){
-        //show 00 00 00 00
-    }
   }
   
   // Initial call to display countdown immediately
